@@ -16,3 +16,31 @@ window.TrelloPowerUp.initialize({
     });
   },
 });
+
+window.TrelloPowerUp.initialize({
+  "card-buttons": function (t, options) {
+    return [
+      {
+        text: "Atribuir Desenvolvedores",
+        callback: function (t) {
+          return t.popup({
+            title: "Selecione os Desenvolvedores",
+            url: "https://seu-site.com/selecione-desenvolvedores/",
+            height: 500,
+          });
+        },
+      },
+    ];
+  },
+  "card-back-section": function (t, options) {
+    return {
+      title: "Desenvolvedores",
+      icon: "https://seu-site.com/icon.png",
+      content: {
+        type: "iframe",
+        url: t.signUrl("https://seu-site.com/lista-desenvolvedores/"),
+        height: 230,
+      },
+    };
+  },
+});
